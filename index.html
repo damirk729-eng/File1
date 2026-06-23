@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Damir Karotki</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #f9faff 0%, #eef2f9 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1.5rem;
+      color: #1e1f2a;
+    }
+
+    .card {
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 3.5rem;
+      padding: 2.8rem 2.8rem 3rem;
+      box-shadow: 0 30px 60px rgba(0, 10, 30, 0.12), 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: all 0.2s ease;
+    }
+
+    /* ===== HEADER ===== */
+    .profile-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    /* ===== RAINBOW AVATAR ===== */
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        #ff0000,
+        #ff7700,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #8b00ff,
+        #ff0000
+      );
+      background-size: 200% 200%;
+      animation: rainbowSpin 6s linear infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 15px 30px -8px rgba(99, 102, 241, 0.4);
+      border: 4px solid white;
+      transition: transform 0.25s ease;
+    }
+    .avatar:hover {
+      transform: scale(1.05) rotate(3deg);
+    }
+
+    @keyframes rainbowSpin {
+      0% {
+        background-position: 0% 50%;
+        filter: hue-rotate(0deg);
+      }
+      100% {
+        background-position: 100% 50%;
+        filter: hue-rotate(360deg);
+      }
+    }
+
+    .badge-online {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      background: #22c55e;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 4px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: white;
+      box-shadow: 0 4px 8px rgba(34, 197, 94, 0.3);
+    }
+
+    .title-group h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #1e1f2a, #3b3f5c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.1;
+    }
+
+    .title-group .subhead {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #4f5280;
+      background: rgba(99, 102, 241, 0.10);
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      margin-top: 0.3rem;
+      border: 1px solid rgba(99, 102, 241, 0.15);
+    }
+
+    .title-group .subhead i {
+      margin-right: 8px;
+      color: #6366f1;
+    }
+
+    /* ===== CONTACT / SOCIAL ===== */
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      margin-bottom: 2.8rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: #2d3047;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.2s;
+      padding: 0.2rem 0.4rem;
+      border-radius: 40px;
+    }
+    .contact-item i {
+      font-size: 1.2rem;
+      width: 28px;
+      color: #4f46e5;
+    }
+    .contact-item:hover {
+      background: rgba(99, 102, 241, 0.08);
+      color: #1e1f2a;
+      transform: translateY(-2px);
+    }
+    .contact-item .fab.fa-github {
+      color: #1b1c2a;
+    }
+    .contact-item .fab.fa-telegram {
+      color: #0088cc;
+    }
+
+    /* ===== GRID ===== */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 780px) {
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .card {
+        padding: 1.8rem;
+      }
+      .title-group h1 {
+        font-size: 2rem;
+      }
+      .avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 3rem;
+      }
+    }
+
+    /* ===== LEFT COLUMN: About + Skills ===== */
+    .about-section h2,
+    .skills-section h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #1e1f2a;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .about-section h2 i,
+    .skills-section h2 i {
+      color: #6366f1;
+      font-size: 1.4rem;
+    }
+
+    /* ===== RAINBOW ROCKET ICON ===== */
+    .about-section h2 .fa-rocket {
+      display: inline-block;
+      animation: rocketFloat 2.5s ease-in-out infinite;
+      background: conic-gradient(
+        from 0deg,
+        #ff0000,
+        #ff7700,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #8b00ff,
+        #ff0000
+      );
+      background-size: 200% 200%;
+      animation: rocketFloat 2.5s ease-in-out infinite, rainbowSpin 4s linear infinite;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 1.6rem;
+    }
+
+    @keyframes rocketFloat {
+      0%,
+      100% {
+        transform: translateY(0px) rotate(-5deg);
+      }
+      50% {
+        transform: translateY(-6px) rotate(5deg);
+      }
+    }
+
+    .about-text {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      padding: 1.5rem 1.8rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #2d3047;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 0.9rem;
+      margin-top: 0.2rem;
+    }
+
+    .skill-tag {
+      background: white;
+      padding: 0.5rem 1.3rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1e1f2a;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(99, 102, 241, 0.15);
+      transition: 0.2s;
+      backdrop-filter: blur(2px);
+    }
+    .skill-tag i {
+      margin-right: 6px;
+      color: #6366f1;
+      font-size: 0.9rem;
+    }
+    .skill-tag:hover {
+      background: #6366f1;
+      color: white;
+      border-color: #6366f1;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(99, 102, 241, 0.25);
+    }
+    .skill-tag:hover i {
+      color: white;
+    }
+
+    /* ===== RIGHT COLUMN: PROJECTS ===== */
+    .projects-section h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #1e1f2a;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .projects-section h2 i {
+      color: #6366f1;
+    }
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .project-item {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(4px);
+      padding: 1.2rem 1.5rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: 0.25s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .project-item:hover {
+      transform: translateY(-4px) scale(1.01);
+      background: rgba(255, 255, 255, 0.8);
+      border-color: #a5b4fc;
+      box-shadow: 0 16px 30px -8px rgba(99, 102, 241, 0.15);
+    }
+
+    .project-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .project-info h3 {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1e1f2a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .project-info h3 i {
+      color: #6366f1;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+    .project-info p {
+      font-size: 0.9rem;
+      color: #4f5280;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .project-link {
+      background: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #4f46e5;
+      border: 1px solid #e0e7ff;
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+    .project-link i {
+      font-size: 0.8rem;
+    }
+    .project-link:hover {
+      background: #4f46e5;
+      color: white;
+      border-color: #4f46e5;
+      box-shadow: 0 8px 16px rgba(79, 70, 229, 0.25);
+    }
+
+    /* ===== ACHIEVEMENTS ===== */
+    .achievement-strip {
+      margin-top: 2.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem 2rem;
+      border-top: 1px solid rgba(99, 102, 241, 0.10);
+      padding-top: 2.2rem;
+    }
+
+    .achieve-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      color: #2d3047;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(4px);
+      padding: 0.5rem 1.8rem 0.5rem 1.2rem;
+      border-radius: 60px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    .achieve-item i {
+      font-size: 1.5rem;
+      color: #f59e0b;
+    }
+    .achieve-item span {
+      font-weight: 700;
+      color: #1e1f2a;
+      margin-right: 4px;
+    }
+
+    /* ===== ANIMATION ===== */
+    .card {
+      animation: floatUp 0.8s cubic-bezier(0.16, 1, 0.2, 1);
+    }
+    @keyframes floatUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .text-muted {
+      color: #6b6f94;
+    }
+    .mb-1 {
+      margin-bottom: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <!-- HEADER: Avatar + Name -->
+    <div class="profile-header">
+      <div class="avatar-wrapper">
+        <!-- RAINBOW AVATAR with letter D -->
+        <div class="avatar">D</div>
+        <div class="badge-online"><i class="fas fa-code" style="font-size: 12px;"></i></div>
+      </div>
+      <div class="title-group">
+        <h1>Damir Karotki</h1>
+        <div class="subhead"><i class="fas fa-laptop-code"></i> Student at «Code-Start»</div>
+      </div>
+    </div>
+
+    <!-- Contacts & Social -->
+    <div class="contact-bar">
+      <a href="#" class="contact-item"><i class="fas fa-envelope"></i> damir@code.me</a>
+      <a href="#" class="contact-item"><i class="fab fa-github"></i> damir-dev</a>
+      <a href="#" class="contact-item"><i class="fab fa-telegram"></i> @damir_coder</a>
+      <a href="#" class="contact-item"><i class="fas fa-map-pin"></i> Sola, Norway</a>
+    </div>
+
+    <!-- MAIN GRID: About + Skills | Projects -->
+    <div class="grid-2col">
+      <!-- LEFT COLUMN -->
+      <div>
+        <div class="about-section">
+          <h2>
+            <!-- RAINBOW ROCKET ICON -->
+            <i class="fas fa-rocket"></i> About Me
+          </h2>
+          <div class="about-text">
+            <p><strong>Hi, I'm Damir!</strong> I'm 11 years old and I live in Sola, Norway. I love programming and I really enjoy playing chess. I started learning chess when I was 8, and now I'm a pro at it! ♟️</p>
+            <p style="margin-top: 0.6rem;">I've been learning programming for 5 years now. I love creating games, websites, and small bots. My dream is to become an AI developer and build useful technology for the future.</p>
+            <p style="margin-top: 0.6rem;"><i class="fas fa-heart" style="color: #f472b6; margin-right: 6px;"></i> <strong>Passions:</strong> Python, web design, chess, and solving puzzles.</p>
+          </div>
+        </div>
+
+        <div class="skills-section">
+          <h2><i class="fas fa-cogs"></i> Skills</h2>
+          <div class="skill-tags">
+            <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+            <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
+            <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+            <span class="skill-tag"><i class="fab fa-js"></i> JavaScript (basics)</span>
+            <span class="skill-tag"><i class="fas fa-gamepad"></i> Pygame</span>
+            <span class="skill-tag"><i class="fas fa-database"></i> SQL (beginner)</span>
+            <span class="skill-tag"><i class="fas fa-robot"></i> ChatGPT API</span>
+            <span class="skill-tag"><i class="fas fa-paint-brush"></i> Figma</span>
+            <span class="skill-tag"><i class="fas fa-chess-king"></i> Chess (Pro)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Projects -->
+      <div class="projects-section">
+        <h2><i class="fas fa-folder-open"></i> Featured Projects</h2>
+        <div class="project-list">
+
+          <div class="project-item">
+            <div class="project-info">
+              <h3><i class="fas fa-gamepad"></i> Space Ranger</h3>
+              <p>A Pygame game with levels, enemies, and bosses.</p>
+            </div>
+            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+          </div>
+
+          <div class="project-item">
+            <div class="project-info">
+              <h3><i class="fas fa-cloud-sun"></i> Weather Bot</h3>
+              <p>Telegram bot using Python and OpenWeatherMap API.</p>
+            </div>
+            <a href="#" class="project-link"><i class="fab fa-telegram"></i> Bot</a>
+          </div>
+
+          <div class="project-item">
+            <div class="project-info">
+              <h3><i class="fas fa-palette"></i> Personal Portfolio</h3>
+              <p>This website – my business card made with love.</p>
+            </div>
+            <a href="#" class="project-link"><i class="fas fa-code"></i> Source</a>
+          </div>
+
+          <div class="project-item">
+            <div class="project-info">
+              <h3><i class="fas fa-calculator"></i> Formula Calculator</h3>
+              <p>A web app for calculating area of different shapes.</p>
+            </div>
+            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements -->
+    <div class="achievement-strip">
+      <div class="achieve-item"><i class="fas fa-medal"></i> <span>3</span> course certificates</div>
+      <div class="achieve-item"><i class="fas fa-trophy"></i> <span>1</span>st place in «Young Code» hackathon</div>
+      <div class="achieve-item"><i class="fas fa-star"></i> <span>12+</span> completed projects</div>
+      <div class="achieve-item"><i class="fas fa-chess-king"></i> <span>Chess</span> Pro player</div>
+    </div>
+
+    <!-- Footer -->
+    <div style="margin-top: 2.2rem; text-align: center; font-size: 0.8rem; color: #8b8fa8; border-top: 1px solid rgba(99, 102, 241, 0.06); padding-top: 1.2rem;">
+      <i class="fas fa-heart" style="color: #f472b6;"></i> made by Damir, student at «Code-Start» • 2026
+    </div>
+
+  </div>
+
+</body>
+</html>

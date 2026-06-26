@@ -1,578 +1,350 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Damir Karotki</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Damir Karotki · Portfolio</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(145deg, #f9faff 0%, #eef2f9 100%);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem 1.5rem;
-      color: #1e1f2a;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f1724;
+            color: #e8edf3;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .card {
-      max-width: 1100px;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 3.5rem;
-      padding: 2.8rem 2.8rem 3rem;
-      box-shadow: 0 30px 60px rgba(0, 10, 30, 0.12), 0 10px 30px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      transition: all 0.2s ease;
-    }
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: #1a2637;
+            padding: 2.5rem 2.8rem;
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid #2d4055;
+            transition: all 0.2s;
+        }
 
-    /* ===== HEADER ===== */
-    .profile-header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 2.8rem;
-    }
+        /* Заголовок */
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #6cb4ee;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.2rem;
+        }
 
-    .avatar-wrapper {
-      position: relative;
-      flex-shrink: 0;
-    }
+        .subhead {
+            font-size: 1.2rem;
+            color: #9bb7d4;
+            margin-bottom: 1.8rem;
+            border-left: 4px solid #3a6a8f;
+            padding-left: 1rem;
+        }
 
-    /* ===== RAINBOW AVATAR ===== */
-    .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: conic-gradient(
-        from 0deg,
-        #ff0000,
-        #ff7700,
-        #ffff00,
-        #00ff00,
-        #0000ff,
-        #4b0082,
-        #8b00ff,
-        #ff0000
-      );
-      background-size: 200% 200%;
-      animation: rainbowSpin 6s linear infinite;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      font-weight: 700;
-      color: white;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      box-shadow: 0 15px 30px -8px rgba(99, 102, 241, 0.4);
-      border: 4px solid white;
-      transition: transform 0.25s ease;
-    }
-    .avatar:hover {
-      transform: scale(1.05) rotate(3deg);
-    }
+        /* Секции */
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #8fcbff;
+            margin-top: 2.2rem;
+            margin-bottom: 0.8rem;
+            border-bottom: 2px solid #2a4058;
+            padding-bottom: 0.4rem;
+        }
 
-    @keyframes rainbowSpin {
-      0% {
-        background-position: 0% 50%;
-        filter: hue-rotate(0deg);
-      }
-      100% {
-        background-position: 100% 50%;
-        filter: hue-rotate(360deg);
-      }
-    }
+        p {
+            margin-bottom: 1rem;
+            color: #d3dce6;
+        }
 
-    .badge-online {
-      position: absolute;
-      bottom: 4px;
-      right: 4px;
-      background: #22c55e;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 4px solid white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: white;
-      box-shadow: 0 4px 8px rgba(34, 197, 94, 0.3);
-    }
+        strong {
+            color: #b8d4f0;
+        }
 
-    .title-group h1 {
-      font-size: 2.6rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      background: linear-gradient(145deg, #1e1f2a, #3b3f5c);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      line-height: 1.1;
-    }
+        /* Ссылки */
+        a {
+            color: #6cb4ee;
+            text-decoration: none;
+            transition: color 0.2s;
+            border-bottom: 1px dashed transparent;
+        }
 
-    .title-group .subhead {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #4f5280;
-      background: rgba(99, 102, 241, 0.10);
-      display: inline-block;
-      padding: 0.4rem 1.2rem;
-      border-radius: 60px;
-      backdrop-filter: blur(4px);
-      margin-top: 0.3rem;
-      border: 1px solid rgba(99, 102, 241, 0.15);
-    }
+        a:hover {
+            color: #8fcbff;
+            border-bottom-color: #6cb4ee;
+        }
 
-    .title-group .subhead i {
-      margin-right: 8px;
-      color: #6366f1;
-    }
+        /* Кнопка Telegram */
+        .telegram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #0088cc, #006699);
+            color: white !important;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-bottom: none !important;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+            margin: 0.5rem 0 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    /* ===== CONTACT / SOCIAL ===== */
-    .contact-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem 2rem;
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(4px);
-      padding: 0.8rem 1.8rem;
-      border-radius: 60px;
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      margin-bottom: 2.8rem;
-      align-items: center;
-      justify-content: center;
-    }
+        .telegram-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 136, 204, 0.4);
+            background: linear-gradient(135deg, #0099dd, #0077aa);
+            color: white !important;
+        }
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 500;
-      color: #2d3047;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: 0.2s;
-      padding: 0.2rem 0.4rem;
-      border-radius: 40px;
-    }
-    .contact-item i {
-      font-size: 1.2rem;
-      width: 28px;
-      color: #4f46e5;
-    }
-    .contact-item:hover {
-      background: rgba(99, 102, 241, 0.08);
-      color: #1e1f2a;
-      transform: translateY(-2px);
-    }
-    .contact-item .fab.fa-github {
-      color: #1b1c2a;
-    }
-    .contact-item .fab.fa-telegram {
-      color: #0088cc;
-    }
+        .telegram-link:active {
+            transform: scale(0.97);
+        }
 
-    /* ===== GRID ===== */
-    .grid-2col {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 2.5rem;
-      margin-top: 0.5rem;
-    }
+        /* Список навыков */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem 1rem;
+            list-style: none;
+            margin: 0.8rem 0 0.5rem 0;
+            padding: 0;
+        }
 
-    @media (max-width: 780px) {
-      .grid-2col {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .card {
-        padding: 1.8rem;
-      }
-      .title-group h1 {
-        font-size: 2rem;
-      }
-      .avatar {
-        width: 100px;
-        height: 100px;
-        font-size: 3rem;
-      }
-    }
+        .skills-list li {
+            background: #1f3145;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            border: 1px solid #3a5775;
+            font-size: 0.95rem;
+            color: #cbdceb;
+        }
 
-    /* ===== LEFT COLUMN: About + Skills ===== */
-    .about-section h2,
-    .skills-section h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: #1e1f2a;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .about-section h2 i,
-    .skills-section h2 i {
-      color: #6366f1;
-      font-size: 1.4rem;
-    }
+        /* Сетка проектов */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin: 1.2rem 0 0.8rem 0;
+        }
 
-    /* ===== RAINBOW ROCKET ICON ===== */
-    .about-section h2 .fa-rocket {
-      display: inline-block;
-      animation: rocketFloat 2.5s ease-in-out infinite;
-      background: conic-gradient(
-        from 0deg,
-        #ff0000,
-        #ff7700,
-        #ffff00,
-        #00ff00,
-        #0000ff,
-        #4b0082,
-        #8b00ff,
-        #ff0000
-      );
-      background-size: 200% 200%;
-      animation: rocketFloat 2.5s ease-in-out infinite, rainbowSpin 4s linear infinite;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      font-size: 1.6rem;
-    }
+        .project-card {
+            background: #13212f;
+            padding: 1.2rem 1.2rem 1rem 1.2rem;
+            border-radius: 14px;
+            border-left: 4px solid #4c8bb8;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+            transition: transform 0.15s ease, background 0.15s;
+        }
 
-    @keyframes rocketFloat {
-      0%,
-      100% {
-        transform: translateY(0px) rotate(-5deg);
-      }
-      50% {
-        transform: translateY(-6px) rotate(5deg);
-      }
-    }
+        .project-card:hover {
+            background: #1a2d40;
+            transform: translateY(-3px);
+        }
 
-    .about-text {
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(4px);
-      padding: 1.5rem 1.8rem;
-      border-radius: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      line-height: 1.6;
-      font-size: 1rem;
-      color: #2d3047;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-    }
+        .project-card strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #7bbde6;
+            margin-bottom: 0.2rem;
+        }
 
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem 0.9rem;
-      margin-top: 0.2rem;
-    }
+        .project-card span {
+            font-size: 0.95rem;
+            color: #b2c9dd;
+        }
 
-    .skill-tag {
-      background: white;
-      padding: 0.5rem 1.3rem;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #1e1f2a;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-      border: 1px solid rgba(99, 102, 241, 0.15);
-      transition: 0.2s;
-      backdrop-filter: blur(2px);
-    }
-    .skill-tag i {
-      margin-right: 6px;
-      color: #6366f1;
-      font-size: 0.9rem;
-    }
-    .skill-tag:hover {
-      background: #6366f1;
-      color: white;
-      border-color: #6366f1;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 18px rgba(99, 102, 241, 0.25);
-    }
-    .skill-tag:hover i {
-      color: white;
-    }
+        /* Игра (iframe) */
+        .game-wrapper {
+            margin: 1.2rem 0 1rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #2a4058;
+            background: #0d1b2a;
+            position: relative;
+            aspect-ratio: 800 / 500;
+            width: 100%;
+        }
 
-    /* ===== RIGHT COLUMN: PROJECTS ===== */
-    .projects-section h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: #1e1f2a;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .projects-section h2 i {
-      color: #6366f1;
-    }
+        .game-wrapper iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #0d1b2a;
+        }
 
-    .project-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
+        .game-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.3rem;
+            font-size: 0.85rem;
+            color: #859eb6;
+        }
 
-    .project-item {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(4px);
-      padding: 1.2rem 1.5rem;
-      border-radius: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      transition: 0.25s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .project-item:hover {
-      transform: translateY(-4px) scale(1.01);
-      background: rgba(255, 255, 255, 0.8);
-      border-color: #a5b4fc;
-      box-shadow: 0 16px 30px -8px rgba(99, 102, 241, 0.15);
-    }
+        .game-label span {
+            background: #13212f;
+            padding: 0.2rem 1rem;
+            border-radius: 20px;
+            border: 1px solid #2a4058;
+        }
 
-    .project-info {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .project-info h3 {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #1e1f2a;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .project-info h3 i {
-      color: #6366f1;
-      font-size: 1rem;
-      opacity: 0.8;
-    }
-    .project-info p {
-      font-size: 0.9rem;
-      color: #4f5280;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-    }
+        /* Статистика */
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem 2.5rem;
+            background: #0f1b29;
+            padding: 1rem 1.8rem;
+            border-radius: 16px;
+            margin: 1.5rem 0 0.5rem 0;
+            border: 1px solid #27405a;
+        }
 
-    .project-link {
-      background: white;
-      padding: 0.4rem 1.2rem;
-      border-radius: 60px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #4f46e5;
-      border: 1px solid #e0e7ff;
-      transition: 0.2s;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-    }
-    .project-link i {
-      font-size: 0.8rem;
-    }
-    .project-link:hover {
-      background: #4f46e5;
-      color: white;
-      border-color: #4f46e5;
-      box-shadow: 0 8px 16px rgba(79, 70, 229, 0.25);
-    }
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            color: #c2d6e8;
+        }
 
-    /* ===== ACHIEVEMENTS ===== */
-    .achievement-strip {
-      margin-top: 2.8rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2rem 2rem;
-      border-top: 1px solid rgba(99, 102, 241, 0.10);
-      padding-top: 2.2rem;
-    }
+        .stat-emoji {
+            font-size: 1.5rem;
+        }
 
-    .achieve-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 500;
-      color: #2d3047;
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(4px);
-      padding: 0.5rem 1.8rem 0.5rem 1.2rem;
-      border-radius: 60px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-    }
-    .achieve-item i {
-      font-size: 1.5rem;
-      color: #f59e0b;
-    }
-    .achieve-item span {
-      font-weight: 700;
-      color: #1e1f2a;
-      margin-right: 4px;
-    }
+        /* Футер */
+        .footer {
+            margin-top: 2.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #2a4058;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #859eb6;
+        }
 
-    /* ===== ANIMATION ===== */
-    .card {
-      animation: floatUp 0.8s cubic-bezier(0.16, 1, 0.2, 1);
-    }
-    @keyframes floatUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px) scale(0.96);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .text-muted {
-      color: #6b6f94;
-    }
-    .mb-1 {
-      margin-bottom: 0.4rem;
-    }
-  </style>
+        /* Адаптивность */
+        @media (max-width: 650px) {
+            .container {
+                padding: 1.8rem 1.2rem;
+            }
+            h1 {
+                font-size: 2.4rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                flex-direction: column;
+                gap: 0.6rem;
+                align-items: flex-start;
+            }
+            .telegram-link {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+                width: 100%;
+                justify-content: center;
+            }
+            .game-label {
+                flex-direction: column;
+                gap: 0.3rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <div class="card">
-
-    <!-- HEADER: Avatar + Name -->
-    <div class="profile-header">
-      <div class="avatar-wrapper">
-        <!-- RAINBOW AVATAR with letter D -->
-        <div class="avatar">D</div>
-        <div class="badge-online"><i class="fas fa-code" style="font-size: 12px;"></i></div>
-      </div>
-      <div class="title-group">
+    <div class="container">
+        <!-- Заголовок -->
         <h1>Damir Karotki</h1>
-        <div class="subhead"><i class="fas fa-laptop-code"></i> Student at «Code-Start»</div>
-      </div>
-    </div>
+        <div class="subhead">Student at «Code-Start»</div>
 
-    <!-- Contacts & Social -->
-    <div class="contact-bar">
-      <a href="#" class="contact-item"><i class="fas fa-envelope"></i> damir@code.me</a>
-      <a href="#" class="contact-item"><i class="fab fa-github"></i> damir-dev</a>
-      <a href="#" class="contact-item"><i class="fab fa-telegram"></i> @damir_coder</a>
-      <a href="#" class="contact-item"><i class="fas fa-map-pin"></i> Sola, Norway</a>
-    </div>
+        <!-- Telegram Bot -->
+        <a href="https://t.me/ItMOUseDamira_bot" target="_blank" class="telegram-link">
+            <span>🤖</span> My Telegram Bot — ItMOUseDamira_bot
+        </a>
 
-    <!-- MAIN GRID: About + Skills | Projects -->
-    <div class="grid-2col">
-      <!-- LEFT COLUMN -->
-      <div>
-        <div class="about-section">
-          <h2>
-            <!-- RAINBOW ROCKET ICON -->
-            <i class="fas fa-rocket"></i> About Me
-          </h2>
-          <div class="about-text">
-            <p><strong>Hi, I'm Damir!</strong> I'm 11 years old and I live in Sola, Norway. I love programming and I really enjoy playing chess. I started learning chess when I was 8, and now I'm a pro at it! ♟️</p>
-            <p style="margin-top: 0.6rem;">I've been learning programming for 5 years now. I love creating games, websites, and small bots. My dream is to become an AI developer and build useful technology for the future.</p>
-            <p style="margin-top: 0.6rem;"><i class="fas fa-heart" style="color: #f472b6; margin-right: 6px;"></i> <strong>Passions:</strong> Python, web design, chess, and solving puzzles.</p>
-          </div>
+        <!-- О себе -->
+        <h2>About Me</h2>
+        <p>Hi, I'm Damir! I'm 11 years old and I live in Sola, Norway. I love programming and I really enjoy playing chess. I started learning chess when I was 8, and now I'm a pro at it! ♟️</p>
+        <p>I've been learning programming for 5 years now. I love creating games, websites, and small bots. My dream is to become an AI developer and build useful technology for the future.</p>
+        <p><strong>Passions:</strong> Python, web design, chess, and solving puzzles.</p>
+
+        <!-- Навыки -->
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li>🐍 Python</li>
+            <li>🌐 HTML/CSS</li>
+            <li>⚡ JavaScript</li>
+            <li>🎮 Pygame</li>
+            <li>🤖 Telegram Bot API</li>
+            <li>♟️ Chess Strategy</li>
+        </ul>
+
+        <!-- Проекты -->
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <strong>🚀 Space Ranger</strong>
+                <span>A Pygame game with levels, enemies, and bosses.</span>
+            </div>
+            <div class="project-card">
+                <strong>🌤️ Weather Bot</strong>
+                <span>Telegram bot using Python and OpenWeatherMap API.</span>
+            </div>
+            <div class="project-card">
+                <strong>💼 Personal Portfolio</strong>
+                <span>This website – my business card made with love.</span>
+            </div>
+            <div class="project-card">
+                <strong>📐 Formula Calculator</strong>
+                <span>A web app for calculating area of different shapes.</span>
+            </div>
         </div>
 
-        <div class="skills-section">
-          <h2><i class="fas fa-cogs"></i> Skills</h2>
-          <div class="skill-tags">
-            <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
-            <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
-            <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
-            <span class="skill-tag"><i class="fab fa-js"></i> JavaScript (basics)</span>
-            <span class="skill-tag"><i class="fas fa-gamepad"></i> Pygame</span>
-            <span class="skill-tag"><i class="fas fa-database"></i> SQL (beginner)</span>
-            <span class="skill-tag"><i class="fas fa-robot"></i> ChatGPT API</span>
-            <span class="skill-tag"><i class="fas fa-paint-brush"></i> Figma</span>
-            <span class="skill-tag"><i class="fas fa-chess-king"></i> Chess (Pro)</span>
-          </div>
+        <!-- Игра -->
+        <h2>🎮 Play My Game</h2>
+        <div class="game-wrapper">
+            <iframe 
+                src="https://damirk729-eng.github.io/Damir-is-Damir/" 
+                title="Damir's Game"
+                loading="lazy"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
         </div>
-      </div>
-
-      <!-- RIGHT COLUMN: Projects -->
-      <div class="projects-section">
-        <h2><i class="fas fa-folder-open"></i> Featured Projects</h2>
-        <div class="project-list">
-
-          <div class="project-item">
-            <div class="project-info">
-              <h3><i class="fas fa-gamepad"></i> Space Ranger</h3>
-              <p>A Pygame game with levels, enemies, and bosses.</p>
-            </div>
-            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-          </div>
-
-          <div class="project-item">
-            <div class="project-info">
-              <h3><i class="fas fa-cloud-sun"></i> Weather Bot</h3>
-              <p>Telegram bot using Python and OpenWeatherMap API.</p>
-            </div>
-            <a href="#" class="project-link"><i class="fab fa-telegram"></i> Bot</a>
-          </div>
-
-          <div class="project-item">
-            <div class="project-info">
-              <h3><i class="fas fa-palette"></i> Personal Portfolio</h3>
-              <p>This website – my business card made with love.</p>
-            </div>
-            <a href="#" class="project-link"><i class="fas fa-code"></i> Source</a>
-          </div>
-
-          <div class="project-item">
-            <div class="project-info">
-              <h3><i class="fas fa-calculator"></i> Formula Calculator</h3>
-              <p>A web app for calculating area of different shapes.</p>
-            </div>
-            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
-          </div>
-
+        <div class="game-label">
+            <span>🎯 WASD / Стрелки — движение, Пробел — прыжок, F — стрельба</span>
+            <span>🔄 Нажми R для перезапуска</span>
         </div>
-      </div>
+
+        <!-- Достижения -->
+        <div class="stats-grid">
+            <div class="stat-item"><span class="stat-emoji">📜</span> 3 course certificates</div>
+            <div class="stat-item"><span class="stat-emoji">🏆</span> 1st place in «Young Code» hackathon</div>
+            <div class="stat-item"><span class="stat-emoji">📁</span> 12+ completed projects</div>
+            <div class="stat-item"><span class="stat-emoji">♟️</span> Chess Pro player</div>
+        </div>
+
+        <!-- Футер -->
+        <div class="footer">
+            made by Damir, student at «Code-Start» • 2026
+        </div>
     </div>
-
-    <!-- Achievements -->
-    <div class="achievement-strip">
-      <div class="achieve-item"><i class="fas fa-medal"></i> <span>3</span> course certificates</div>
-      <div class="achieve-item"><i class="fas fa-trophy"></i> <span>1</span>st place in «Young Code» hackathon</div>
-      <div class="achieve-item"><i class="fas fa-star"></i> <span>12+</span> completed projects</div>
-      <div class="achieve-item"><i class="fas fa-chess-king"></i> <span>Chess</span> Pro player</div>
-    </div>
-
-    <!-- Footer -->
-    <div style="margin-top: 2.2rem; text-align: center; font-size: 0.8rem; color: #8b8fa8; border-top: 1px solid rgba(99, 102, 241, 0.06); padding-top: 1.2rem;">
-      <i class="fas fa-heart" style="color: #f472b6;"></i> made by Damir, student at «Code-Start» • 2026
-    </div>
-
-  </div>
-
 </body>
 </html>
